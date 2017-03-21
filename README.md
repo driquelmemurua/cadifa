@@ -1,32 +1,28 @@
-# cadifa
-Stack:
-°Frontend:
-  - HTML
-  - Javascript
-  - Bootstrap (CSS) 
-  - Jquery
-°Backend:
-  - Laravel (PHP)
-  - MySQL
-°Servidor:
-  - Apache
-°Terminal:
-  - Shell Linux (Ubuntu)
+Introducción 
 
-Explicación:
-Para la realización del projecto, se decidió que el frontend se mantendrá lo mas básico posible para centrar el sistema en las funcionalidades más que en el diseño. Para ello, se utilizará en conjunto el framework "Bootstrap CSS", ya que aporta muchas herramientas sin mayor complejidad. En temas de backend, se utilizará "LAMP" (Linux, Apache, MySql, PHP) en conjunto a un framework llamado "Laravel", ya que este último permite de forma sencilla poder construir proyectos en MVC (Modelo Vista Controlador) sólidos, gracias a que la herramienta posee características de aprendibilidad y usabilidad rápida.
+El proyecto consiste en un módulo blog que tenga la particularidad de poder generar entradas de texto y subida de imágenes en dos vistas conjuntas, una sólo de texto y la otra de imagenes. Para la realización del projecto, se decidió que el Frontend se mantendrá lo mas básico posible para centrar el sistema en las funcionalidades más que en el diseño. Para ello, se utilizará en conjunto el Framework "Bootstrap CSS", ya que aporta muchas herramientas sin mayor complejidad. En temas de backend, se utilizará LAMP (GNU/Linux, Apache, MySql, PHP) en conjunto a un Framework llamado "Laravel", ya que este último permite de forma sencilla poder construir proyectos en MVC (Modelo Vista Controlador) sólidos, gracias a que la herramienta posee características de aprendibilidad y usabilidad rápida, se planea crear una API Rest ya que es el modelo que mejor se ajusta al blog.
 
-Descripción del proyecto:
-El proyecto consiste en un módulo blog que tenga la particularidad de poder generar entradas de texto y subida de imágenes en dos vistas conjuntas, una sólo de texto y la otra de imagenes.
+Stack
 
-Requisitos generales:
--Usar un sistema administrador de bases de datos MySql.
--Crear un panel de admin con verificación usando Json-WebTokens.
--Entradas de blog, fotos y galerías que se registran por parte de un administrador.
--Dos vistas (o páginas) con similar diseño que desplieguen las entradas de blog y de galerías respectivamente.
--Sistema de comentarios anónimos, con nickname o conexion con facebook a las entradas.
--Sistema de historial de las entradas por fecha.
--Sistema de upvotes.
+1.Frontend:
+•HTML
+•Javascript
+•Bootstrap (CSS)
+•Jquery
 
-Requisitos funcionales
--Customizacion de las vistas por parte del administrador (Agregar reproductor de musica, fotos, gifs, etc...).
+2.Backend: (L.A.M.P.)
+•S.O.  bajo  los  servicios:  GNU/Linux  (Distribu-ción a evaluar)
+•Framework Laravel (PHP)
+•Servidor Web: Apache HTTP Server
+•Sistema gestor de base de datos: MySQL
+
+
+Módulos:
+
+-Despliegue:
+
+Se encargará de mostrar las entradas almacenadas en la base de datos, esta consta de dos vistas: Una que se ocupa del blog y otra de las galerías de imágenes, en ambas se puede dejar un comentario de manera anonima, con un pseudonimo o si se desea se puede conectar con facebook para dejar un comentario con tu cuenta, permitiendo tambien acceder al sistema de "Like". Ademas estas vistas tienen como función ser la entrada principal para cualquier visitante, con una estructura basica de baner, logo, publicaciones destacadas, historial de entradas, y links a redes sociales.
+
+-Administrador:
+
+Este módulo se accede mediante una verificación utilizando Json-Webtokens, entregando al usuario control total sobre la API Rest (CRUD), este tendrá la capacidad de gestionar entradas de imágenes y de blog, con este ultimo utilizando un sistema WYSIWYG para la costumización.
