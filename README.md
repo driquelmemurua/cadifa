@@ -9,13 +9,14 @@ Stack
 •Javascript
 •Bootstrap (CSS)
 •Jquery
+•Bower (Package Manager)
 
 2.Backend: (L.A.M.P.)
 •S.O.  bajo  los  servicios:  GNU/Linux  (Distribu-ción a evaluar)
 •Framework Laravel (PHP)
 •Servidor Web: Apache HTTP Server
 •Sistema gestor de base de datos: MySQL
-
+•Composer (Package Manager)
 
 Módulos:
 
