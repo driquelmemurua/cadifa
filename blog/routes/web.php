@@ -11,6 +11,10 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/entradas', 'EntradasController@index');
+Route::get('/entradas/{entrada}', 'EntradasController@show');
