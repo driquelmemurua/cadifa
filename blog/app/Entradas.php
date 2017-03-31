@@ -2,17 +2,9 @@
 
 namespace App;
 
-use App\Entradas;
+use Illuminate\Database\Eloquent\Model;
 
 class Entradas extends Model
 {
-    public function index()
-    {
-    	return Entradas::all();
-    }
-
-    public function show(Entradas $entrada)
-    {
-    	return entrada;
-    }
+    //
 }
