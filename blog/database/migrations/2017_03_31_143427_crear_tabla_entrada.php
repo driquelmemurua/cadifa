@@ -15,7 +15,9 @@ class CrearTablaEntrada extends Migration
     {
         Schema::create('entradas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
             $table->string('contenido');
+            $table->string('preview');
             $table->timestamps();
         });
     }
