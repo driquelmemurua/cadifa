@@ -18,4 +18,4 @@ Route::get('/', function () {
 
 Route::get('/entradas', 'EntradasController@index');
 Route::get('/entradas/{entrada}', 'EntradasController@show');
-Route::post('/entradas' 'EntradasController@store');
+Route::post('/entradas', 'EntradasController@store');
