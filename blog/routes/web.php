@@ -11,11 +11,14 @@
 |
 */
 
+/* Modulo Blog */
+Route::get('/', 'BlogController@index');
+Route::get('/entrada/{id}', 'BlogController@show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/entradas', 'EntradasController@index');
-Route::get('/entradas/{entrada}', 'EntradasController@show');
-Route::post('/entradas', 'EntradasController@store');
+/* Modulo Admin */
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/entrada', 'AdminController@create');
+Route::post('/admin', 'AdminController@store');
+Route::get('/admin/{id}', 'AdminController@edit');
+Route::put('/admin/{id}', 'AdminController@update');
+Route::delete('/admin/{id}', 'AdminController@delete');
