@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaEntradas extends Migration
+class CreateEntriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CrearTablaEntradas extends Migration
      */
     public function up()
     {
-        Schema::create('entradas', function (Blueprint $table) {
+        Schema::create('entries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('administrador_id');
-            $table->string('titulo');
-            $table->string('ruta');
+            $table->string('blogger_id');
+            $table->string('title');
+            $table->unsignedInteger('visits')->default(0);
             $table->timestamps();
+        });
+
+        Schema::table('entries', function (Blueprint $table) {
+            $table->foreign('blogger_id')->references('id')->on('bloggers');
         });
     }
 
@@ -29,6 +33,6 @@ class CrearTablaEntradas extends Migration
      */
     public function down()
     {
-        Schema::drop('entradas');
+        Schema::dropIfExists('entries');
     }
 }

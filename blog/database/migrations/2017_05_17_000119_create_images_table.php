@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaAdministrador extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CrearTablaAdministrador extends Migration
      */
     public function up()
     {
-        Schema::create('administrador', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('usuario_id');
+            $table->string('image_route');
+            $table->timestamps();
+        });
+
+        Schema::table('images', function (Blueprint $table) {
+            $table->unique('image_route');
         });
     }
 
@@ -26,6 +31,6 @@ class CrearTablaAdministrador extends Migration
      */
     public function down()
     {
-        Schema::drop('administrador');
+        Schema::dropIfExists('images');
     }
 }

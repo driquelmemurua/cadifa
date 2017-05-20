@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaComentarios extends Migration
+class CreateAdministratorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CrearTablaComentarios extends Migration
      */
     public function up()
     {
-        Schema::create('comentarios', function (Blueprint $table) {
+        Schema::create('administrators', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('usuario_id');
-            $table->integer('entradas_id');
-            $table->string('contenido');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
             $table->timestamps();
+        });
+
+        Schema::table('administrators', function (Blueprint $table) {
+            $table->unique('email');
         });
     }
 
@@ -29,6 +33,6 @@ class CrearTablaComentarios extends Migration
      */
     public function down()
     {
-        Schema::drop('comentarios');
+        Schema::dropIfExists('administrators');
     }
 }
