@@ -11,14 +11,18 @@
 |
 */
 
-/* Modulo Blog */
-Route::get('/', 'BlogController@index');
-Route::get('/entrada/{id}', 'BlogController@show');
+Route::get('/', 'HomeController@index');
 
-/* Modulo Admin */
-Route::get('/admin', 'AdminController@index');
-Route::get('/admin/entrada', 'AdminController@create');
-Route::post('/admin', 'AdminController@store');
-Route::get('/admin/{id}', 'AdminController@edit');
-Route::put('/admin/{id}', 'AdminController@update');
-Route::delete('/admin/{id}', 'AdminController@delete');
+Route::group(['namespace' => 'Auth'], function () {
+Route::get('auth', 'AuthController@redirectToProvider')->name('auth');
+Route::get('auth/callback', 'AuthController@handleProviderCallback');
+Route::post('logout', 'AuthController@logout')->name('logout');
+});
+/*
+Route::group(['namespace' => 'Visitor'], function () {
+Route::get('/home', 'HomeController@index')->name('home');
+});
+
+Route::group(['namespace' => 'Blogger', 'prefix' => 'blogger'], function () {
+Route::get('/home', 'HomeController@index')->name('bloggerhome');
+});*/
