@@ -41,10 +41,15 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
+        'bloggers' => [
+            'driver' => 'session',
             'provider' => 'users',
         ],
+
+    //    'api' => [
+    //        'driver' => 'token',
+    //        'provider' => 'users',
+    //    ],
     ],
 
     /*
@@ -92,10 +97,10 @@ return [
     */
 
     'passwords' => [
-        'users' => [
+          'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
+           'table' => 'password_resets',
+             'expire' => 60,
         ],
     ],
 
