@@ -13,6 +13,6 @@ class StoriesController extends Controller
     	$page = Input::get('page', 1);
     	$entries = $service->sortOldEntries();
     	$stories = $service->getStories($page);
-        return view('home', $entries, $stories);
+        return view('stories', $entries, $stories);
     }
 }
