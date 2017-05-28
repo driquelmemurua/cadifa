@@ -6,10 +6,11 @@ use App\Entry;
 
 class EntriesService
 {
+	/*
     public function sortOldEntries()
     {
         
-    }
+    }*/
 
     public function getStories($page)
     {
