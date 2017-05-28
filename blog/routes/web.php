@@ -18,11 +18,3 @@ Route::get('auth', 'AuthController@redirectToProvider')->name('auth');
 Route::get('auth/callback', 'AuthController@handleProviderCallback');
 Route::post('logout', 'AuthController@logout')->name('logout');
 });
-/*
-Route::group(['namespace' => 'Visitor'], function () {
-Route::get('/home', 'HomeController@index')->name('home');
-});
-
-Route::group(['namespace' => 'Blogger', 'prefix' => 'blogger'], function () {
-Route::get('/home', 'HomeController@index')->name('bloggerhome');
-});*/
