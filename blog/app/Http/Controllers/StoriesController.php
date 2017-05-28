@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\EntriesService;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class StoriesController extends Controller
 {
-    public function index()
+    public function index($page = null)
     {
-    	$entries = $service->sortOldEntries(Socialite::driver('facebook')->user());
+    	$entries = $service->sortOldEntries();
+    	$stories = $service->getEntries($page);
         return view('home');
     }
 }
