@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('', function(){ return redirect()->route('stories')};
+Route::get('stories', 'StoriesController@index')->name('stories');
 
 Route::group(['namespace' => 'Auth'], function () {
 Route::get('auth', 'AuthController@redirectToProvider')->name('auth');
