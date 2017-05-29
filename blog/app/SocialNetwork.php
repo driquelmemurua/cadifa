@@ -10,6 +10,6 @@ class SocialNetwork extends Model
 
     public function bloggers()
     {
-    	return $this->hasMany('BloggerSocialNetwork');
+    	return $this->hasMany('App\BloggerSocialNetwork');
     }
 }

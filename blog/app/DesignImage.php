@@ -10,11 +10,11 @@ class DesignImage extends Model
 
    	public function design()
     {
-    	return $this->belongsTo('Design');
+    	return $this->belongsTo('App\Design');
     }
 
    	public function image()
     {
-    	return $this->belongsTo('Image');
+    	return $this->belongsTo('App\Image');
     }
 }

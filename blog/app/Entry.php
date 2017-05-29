@@ -10,31 +10,31 @@ class Entry extends Model
 
     public function blogger()
     {
-    	return $this->belongsTo('Blogger');
+    	return $this->belongsTo('App\Blogger');
     }
 
     public function design()
     {
-    	return $this->hasOne('Design');
+    	return $this->hasOne('App\Design');
     }
 
     public function story()
     {
-    	return $this->hasOne('Story');
+    	return $this->hasOne('App\Story');
     }
 
     public function tags()
     {
-    	return $this->hasMany('EntryTag');
+    	return $this->hasMany('App\EntryTag');
     }
 
     public function comments()
     {
-    	return $this->hasMany('Comment');
+    	return $this->hasMany('App\Comment');
     }
 
     public function likes()
     {
-    	return $this->hasMany('Like');
+    	return $this->hasMany('App\Like');
     }
 }

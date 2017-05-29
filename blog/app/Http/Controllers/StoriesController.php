@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entry;
 use App\EntriesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -12,9 +13,13 @@ class StoriesController extends Controller
     public function index(EntriesService $service)
     {
     	$page = Input::get('page', 1);
-    	$entries = $service->sortOldEntries();
-    	$quantity = 5; /*A MODO DE PRUEBA, EXIGIMOS SI O SI SOLO 5 stories*/
-    	$stories = $service->getStories($page, $quantity);
+        $max = 5; /*A MODO DE PRUEBA, EXIGIMOS SI O SI SOLO 5 stories*/ 
+    	$entries = $service->sortEntries();
+        $stories = $service->getStories($page, $max);
+        foreach($stories as $story){
+            $story['likes'] = $service->getEntryLikes($story->id);
+            $story['comments'] = $service->getEntryComments($story->id);
+        }
 
         return View::make('stories')
         	->with('stories', $stories)

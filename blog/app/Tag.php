@@ -10,12 +10,6 @@ class Tag extends Model
 
     public function entries()
     {
-    	return $this->hasMany('EntryTag');
-    }
-
-  	public function exists($name)
-    {
-        return $this::where('name', $name)
-                    ->first() ? 1 : 0;
+    	return $this->hasMany('App\EntryTag');
     }
 }

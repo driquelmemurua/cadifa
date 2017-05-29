@@ -20,6 +20,9 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;
+                <li><a href="{{ route('stories') }}">Historias</a></li>
+                <li><a href="{{ route('designs') }}">Diseños</a></li>
+                <li><a href="{{ route('contact') }}">Contacto</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

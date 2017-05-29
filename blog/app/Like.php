@@ -10,11 +10,11 @@ class Like extends Model
 
     public function user()
     {
-    	return $this->belongsTo('User');
+    	return $this->belongsTo('App\User');
     }
 
     public function entry()
     {
-    	return $this->belongsTo('Entry');
+    	return $this->belongsTo('App\Entry');
     }
 }

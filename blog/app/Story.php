@@ -10,6 +10,6 @@ class Story extends Model
 
     public function entry()
     {
-    	return $this->belongsTo('Entry');
+    	return $this->belongsTo('App\Entry');
     }
 }

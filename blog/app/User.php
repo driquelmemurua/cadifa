@@ -11,16 +11,16 @@ class User extends Authenticatable
 
     public function blogger()
     {
-    	return $this->hasOne('Blogger');
+    	return $this->hasOne('App\Blogger');
     }
 
     public function likes()
     {
-    	return $this->hasMany('Like');
+    	return $this->hasMany('App\Like');
     }
 
     public function comments()
     {
-    	return $this->hasMany('Comment');
+    	return $this->hasMany('App\Comment');
     }
 }

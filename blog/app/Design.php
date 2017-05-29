@@ -10,11 +10,11 @@ class Design extends Model
 
     public function entry()
     {
-    	return $this->belongsTo('Entry');
+    	return $this->belongsTo('App\Entry');
     }
 
     public function images()
     {
-    	return $this->hasMany('DesignImage');
+    	return $this->hasMany('App\DesignImage');
     }
 }

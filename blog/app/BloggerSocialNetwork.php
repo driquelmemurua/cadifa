@@ -10,11 +10,11 @@ class BloggerSocialNetwork extends Model
 
     public function blogger()
     {
-    	return $this->belongsTo('Blogger');
+    	return $this->belongsTo('App\Blogger');
     }
 
     public function socialNetwork()
     {
-    	return $this->belongsTo('SocialNetwork');
+    	return $this->belongsTo('App\SocialNetwork');
     }
 }

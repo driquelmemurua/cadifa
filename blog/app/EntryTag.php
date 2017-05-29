@@ -10,11 +10,11 @@ class EntryTag extends Model
 
     public function tag()
     {
-    	return $this->belongsTo('Tag');
+    	return $this->belongsTo('App\Tag');
     }
 
     public function entry()
     {
-    	return $this->belongsTo('Entry');
+    	return $this->belongsTo('App\Entry');
     }
 }

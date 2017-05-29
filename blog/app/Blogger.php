@@ -11,16 +11,16 @@ class Blogger extends Authenticatable
 
     public function user()
     {
-    	return $this->belongsTo('User');
+    	return $this->belongsTo('App\User');
     }
 
     public function socialNetworks()
     {
-    	return $this->hasMany('BloggerSocialNetwork');
+    	return $this->hasMany('App\BloggerSocialNetwork');
     }
 
     public function entries()
     {
-    	return $this->hasMany('Entry');
+    	return $this->hasMany('App\Entry');
     }
 }

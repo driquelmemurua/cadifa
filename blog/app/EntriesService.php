@@ -3,13 +3,14 @@
 namespace App;
 
 use App\Entry;
+use App\Image;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class EntriesService
 {
 	
-    public function sortOldEntries()
+    public function sortEntries()
     {
     	$entries = array(array(array()));
         $result = Entry::orderBy('id', 'desc')->get();
@@ -19,23 +20,59 @@ class EntriesService
         	$month = Carbon::parse($entry->created_at)->month;
         	$entries[ $year ][ $month ][ $entry->id ] = $entry;
         }
+
         return $entries;
     }
 
-    public function getStories($page, $quantity)
+    public function getStories($page, $max)
     {
-        $result = Entry::select(DB::raw('entries.id as id, comments.id as comment_id, entries.title as entries_title, entries.created_at as creation_date, comments.content as comment_content, stories.content as stories_content, count(likes.entry_id) as likes_count'))
-			->join('stories', 'entries.id', '=', 'stories.entry_id')
-	    	->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
-	    	//->leftJoin('comments', 'entries.id' ,'=', 'comments.entry_id')
-			->orderBy('entries.created_at', 'desc')
-	    	->skip($page-1 * $quantity)
-			->take($quantity)
-            ->groupBy('entries.title', 'entries.id', 'entries.created_at',/* 'comments.content',*/ 'stories.content', 'comment_id')
-			->get();
-		
-        /* AQUI AGREGAR AL ARREGLO $result, en su última posicion, LA CANTIDAD DE LIKES DE LA ENTRY */
+        $result = Entry::select('entries.id', 'entries.title', 'entries.created_at as creation_date', 'stories.content')
+                        ->join('stories', 'entries.id', '=', 'stories.entry_id')
+                        ->skip($page-1 * $max)
+                        ->take($max)
+                        ->get();
 
+        return $result;
+    }
+
+    public function getDesigns($page, $max)
+    {
+        $result = Entry::select('entries.id', 'entries.title', 'entries.created_at as creation_date', 'designs.description')
+                        ->join('designs', 'entries.id', '=', 'designs.entry_id')
+                        ->skip($page-1 * $max)
+                        ->take($max)
+                        ->get();
+
+        return $result;
+    }
+
+    public function getEntryLikes($id)
+    {
+        $result = Entry::join('likes', 'entries.id', '=', 'likes.entry_id')
+                        ->where('entries.id', $id)
+                        ->count();
+        
+        return $result;
+    }
+
+    public function getEntryComments($id)
+    {
+        $result = Entry::select('users.name', 'users.avatar_route', 'comments.content')
+                        ->join('comments', 'entries.id', '=', 'comments.entry_id')
+                        ->join('users', 'users.id', '=', 'comments.user_id')
+                        ->where('entries.id', $id)
+                        ->get();
+        
+        return $result;
+    }
+
+    public function getDesignImages($id)
+    {
+        $result = Entry::select('images.image_route')
+                        ->join('design_images', 'entries.id', '=', 'design_images.design_id')
+                        ->join('images', 'images.id', '=', 'design_images.image_id')
+                        ->where('entries.id', $id)
+                        ->get();
         return $result;
     }
 }

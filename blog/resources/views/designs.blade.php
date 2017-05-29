@@ -13,41 +13,33 @@
 @section('sidebar')
     @include('sidebar', $entries)
 @endsection
-
 @section('content')
-
-{{"Historias (blog/resources/views/stories.blade.php)"}} <br>
-{{"n: n-esima historia [0;4]"}} <br>
-{{"stories['n']->id"}} <br>
-{{"stories['n']->title"}} <br>
-{{"stories['n']->creation_date"}} <br>
-{{"stories['n']->likes"}} <br>
-{{"stories['n']->content"}} <br>
+{{"Diseños (blog/resources/views/designs.blade.php)"}} <br>
+{{"n: n-esima diseño [0;4]"}} <br>
+{{"designs['n']->id"}} <br>
+{{"designs['n']->title"}} <br>
+{{"designs['n']->creation_date"}} <br>
+{{"designs['n']->likes"}} <br>
+{{"designs['n']->description"}} <br>
+{{"i: i-esima imagen [0;...]"}} <br>
+{{"designs['n']->images['i']->image_route"}} <br>
 {{"m: m-esimo comentario [0;...]"}} <br>
-{{"stories['n']->comment['m']->name"}} <br>
-{{"stories['n']->comment['m']->avatar_route"}} <br>
-{{"stories['n']->comment['m']->content"}} <br>
+{{"designs['n']->comments['m']->name"}} <br>
+{{"designs['n']->comments['m']->avatar_route"}} <br>
+{{"designs['n']->comments['m']->content"}} <br>
 {{"----------"}}<br>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-
-                <div class="panel-heading">Entradas</div>
-
-                    @foreach ($stories as $story)
-
-                    <div class="panel-heading">
-                            <h1>{{$story->title}}</h1>
+    @foreach($designs as $design)
+                <div class="panel-heading">
+                    <h1>{{$design->title}}</h1>
 
                     <div class="panel-body">
 
                         <div class="row">
-                            
+               @foreach($design->images as $image)             
                             <div class="col-md-8 col-md-offset-0.3">
 
-                                <h4>{{$story->created_at}}</h4>
-                            
+                                <img src="{{$image->image_route}}">
+                @endforeach            
                             </div>
                         
                         </div>
@@ -58,7 +50,7 @@
 
                                 <div class="entry">
 
-                                    <h3>{{$story->content}}</h3>
+                                    <h3>{{$design->description}}</h3>
                                 
                                 </div>
 
@@ -67,9 +59,10 @@
                         </div>
                     </div>
                 </div>
-                @endforeach            
-            </div>
-        </div>
-    </div>
-</div>
+        
+        
+        	
+
+       	
+	@endforeach
 @endsection

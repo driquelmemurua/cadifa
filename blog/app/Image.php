@@ -10,6 +10,6 @@ class Image extends Model
 
 	public function designs()
     {
-    	return $this->hasMany('DesignImage');
+    	return $this->hasMany('App\DesignImage');
     }
 }
