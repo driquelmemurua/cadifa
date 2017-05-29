@@ -15,6 +15,9 @@ class StoriesController extends Controller
     	$entries = $service->sortOldEntries();
     	$quantity = 5; /*A MODO DE PRUEBA, EXIGIMOS SI O SI SOLO 5 stories*/
     	$stories = $service->getStories($page, $quantity);
-        return View::make('stories')->with('stories', $stories, $entries); /*Imprime el arreglo de stories del sistema */
+
+        return View::make('stories')
+        	->with('stories', $stories)
+        	->with('entries', $entries);
     }
 }
