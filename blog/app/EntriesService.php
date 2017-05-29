@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Entry;
+use Illuminate\Support\Facades\DB;
 
 class EntriesService
 {
