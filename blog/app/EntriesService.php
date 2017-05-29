@@ -23,7 +23,8 @@ class EntriesService
     /*$stories = array();*/
 	for($i = 0; $i < $quantity; $i++)
 	{
-	    $result = Entry::join('stories', 'entries.id', '=', 'stories.entry_id')
+	    $result = Entry::select(DB::raw("SELECT entries.*, entries.created_at as creation_date, comments.content as comment_content))
+				->join('stories', 'entries.id', '=', 'stories.entry_id')
 		    		->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
 		    		->leftJoin('comments', 'entries.id' ,'=', 'comments.entry_id')
 				/*->orderBy('created_at', 'desc')*/
