@@ -31,7 +31,7 @@ class EntriesService
 			->orderBy('entries.created_at', 'desc')
 	    	->skip($page-1 * $quantity)
 			->take($quantity)
-            ->groupBy('entries.title', 'entries.id', 'entries.created_at', 'comments.content', 'stories.content', 'comment_id')
+            ->groupBy('entries.title', 'entries.id', 'entries.created_at',/* 'comments.content',*/ 'stories.content', 'comment_id')
 			->get();
 		
         /* AQUI AGREGAR AL ARREGLO $result, en su última posicion, LA CANTIDAD DE LIKES DE LA ENTRY */
