@@ -7,11 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Blogger extends Authenticatable
 {
-	protected $fillable = array('user_id');
+	protected $fillable = array('id');
 
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User', 'id', 'id');
     }
 
     public function socialNetworks()

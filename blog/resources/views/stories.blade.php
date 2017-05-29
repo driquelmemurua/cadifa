@@ -17,13 +17,13 @@
 @section('content')
 
 {{"Historias (blog/resources/views/stories.blade.php)"}} <br>
-{{"n: n-esima historia [0;4]"}} <br>
+{{"n: n-esima-1 historia (5 max) [0;4]"}} <br>
 {{"stories['n']->id"}} <br>
 {{"stories['n']->title"}} <br>
 {{"stories['n']->creation_date"}} <br>
 {{"stories['n']->likes"}} <br>
 {{"stories['n']->content"}} <br>
-{{"m: m-esimo comentario [0;...]"}} <br>
+{{"m: m-esimo-1 comentario [0;m]"}} <br>
 {{"stories['n']->comment['m']->name"}} <br>
 {{"stories['n']->comment['m']->avatar_route"}} <br>
 {{"stories['n']->comment['m']->content"}} <br>

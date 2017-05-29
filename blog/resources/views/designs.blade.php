@@ -15,15 +15,15 @@
 @endsection
 @section('content')
 {{"Diseños (blog/resources/views/designs.blade.php)"}} <br>
-{{"n: n-esima diseño [0;4]"}} <br>
+{{"n: n-esima-1 diseño (5 max) [0;4]"}} <br>
 {{"designs['n']->id"}} <br>
 {{"designs['n']->title"}} <br>
 {{"designs['n']->creation_date"}} <br>
 {{"designs['n']->likes"}} <br>
 {{"designs['n']->description"}} <br>
-{{"i: i-esima imagen [0;...]"}} <br>
+{{"i: i-esima-1 imagen [0;i]"}} <br>
 {{"designs['n']->images['i']->image_route"}} <br>
-{{"m: m-esimo comentario [0;...]"}} <br>
+{{"m: m-esimo-1 comentario [0;m]"}} <br>
 {{"designs['n']->comments['m']->name"}} <br>
 {{"designs['n']->comments['m']->avatar_route"}} <br>
 {{"designs['n']->comments['m']->content"}} <br>
