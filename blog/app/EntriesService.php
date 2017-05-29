@@ -24,9 +24,6 @@ class EntriesService
 
     public function getStories($page, $quantity)
     {
-
-	    $stories = array(array());
-
         $result = Entry::select(DB::raw('entries.id as id, comments.id as comment_id, entries.title as entries_title, entries.created_at as creation_date, comments.content as comment_content, stories.content as stories_content, count(likes.entry_id) as likes_count'))
 			->join('stories', 'entries.id', '=', 'stories.entry_id')
 	    	->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
@@ -36,15 +33,9 @@ class EntriesService
 			->take($quantity)
             ->groupBy('entries.title', 'entries.id', 'entries.created_at', 'comments.content', 'stories.content', 'comment_id')
 			->get();
-
-		foreach($result as $story)
-		{
-			$stories[$story->id][$story->comment_id] = $story;
-			print($stories[$story->id][$story->comment_id]);
-		}
 		
         /* AQUI AGREGAR AL ARREGLO $result, en su última posicion, LA CANTIDAD DE LIKES DE LA ENTRY */
 
-        return $stories;
+        return $result;
     }
 }
