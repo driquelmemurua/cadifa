@@ -20,19 +20,19 @@ class EntriesService
 
     public function getStories($page, $quantity)
     {
-    	$stories = array();
+    /*$stories = array();*/
 	for($i = 0; $i < $quantity; $i++)
 	{
 	    $result = Entry::join('stories', 'entries.id', '=', 'stories.entry_id')
-		    		leftJoin->('likes', 'entries.id', '=', 'likes.entry_id') 
-		    		leftJoin->('comments', 'entries.id' ,'=', 'comments.entry_id')
-				->orderBy('id', 'desc')
-		    		->skip($page * $quantity)
+		    		->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
+		    		->leftJoin('comments', 'entries.id' ,'=', 'comments.entry_id')
+				/*->orderBy('created_at', 'desc')*/
+		    		->skip($page-1 * $quantity)
 				->take($quantity)
 				->get();
 	}
         /* AQUI AGREGAR AL ARREGLO $result, en su última posicion, LA CANTIDAD DE LIKES DE LA ENTRY */
 
-        return $stories;
+        return $result/*$stories*/;
     }
 }
