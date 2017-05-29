@@ -18,7 +18,9 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Welcome!
+                    @foreach ($stories as $story)
+                    {{$story}}
+                    @endforeach
                 </div>
             </div>
         </div>

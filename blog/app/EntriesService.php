@@ -21,7 +21,7 @@ class EntriesService
     public function getStories($page)
     {
     	$stories = array();
-        $result = Entry::with('stories', 'likes', 'comments')
+        $result = Entry::join('stories', 'entries.id', '=', 'stories.entry_id')/*::with('stories', 'likes', 'comments')*/
         				->orderBy('id', 'desc')
         				->take(5 * $page)
         				->get();
