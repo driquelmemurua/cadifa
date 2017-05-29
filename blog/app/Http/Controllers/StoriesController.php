@@ -11,8 +11,8 @@ class StoriesController extends Controller
     public function index(EntriesService $service)
     {
     	$page = Input::get('page', 1);
-    	$entries = $service->sortOldEntries();
+    	/*$entries = $service->sortOldEntries();*/
     	$stories = $service->getStories($page);
-        return view('stories', $entries, $stories);
+        return view('stories', /*$entries,*/ $stories);
     }
 }

@@ -1,4 +1,4 @@
-@extends('app.blade.php')
+@extends('layouts.app')
 
 @section('navbar')
     @if (Auth::check())

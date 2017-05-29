@@ -7,16 +7,16 @@ use App\Entry;
 class EntriesService
 {
 	
-    public function sortOldEntries()
+    /**public function sortOldEntries()
     {
     	$entries = array();
-        $result = Entry::orderBy('id', 'desc')->all();
+        $result = Entry::orderBy('id', 'desc')->get();
         foreach($result as $entry){
         	$year = Carbon::createFromFormat('Y-m-d H:i:s', $entry)->year;
         	$month = Carbon::createFromFormat('Y-m-d H:i:s', $entry)->month;
         	$entries[ $year ][ $month ][ $entry->id ] = $entry;
         }
-    }
+    }*/
 
     public function getStories($page)
     {
