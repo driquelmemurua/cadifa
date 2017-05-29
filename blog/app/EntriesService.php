@@ -4,20 +4,22 @@ namespace App;
 
 use App\Entry;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class EntriesService
 {
 	
-    /**public function sortOldEntries()
+    public function sortOldEntries()
     {
-    	$entries = array();
+    	$entries = array(array(array()));
         $result = Entry::orderBy('id', 'desc')->get();
         foreach($result as $entry){
-        	$year = Carbon::createFromFormat('Y-m-d H:i:s', $entry)->year;
-        	$month = Carbon::createFromFormat('Y-m-d H:i:s', $entry)->month;
+        	$year = Carbon::parse($entry->created_at)->year;
+        	$month = Carbon::parse($entry->created_at)->month;
         	$entries[ $year ][ $month ][ $entry->id ] = $entry;
         }
-    }*/
+        return $entries;
+    }
 
     public function getStories($page, $quantity)
     {
