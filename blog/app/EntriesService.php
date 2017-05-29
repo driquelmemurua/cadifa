@@ -23,14 +23,18 @@ class EntriesService
     {
     /*$stories = array();*/
 	for($i = 0; $i < $quantity; $i++)
-	{
-	    $result = Entry::select(DB::raw('entries.*, entries.created_at as creation_date, comments.content as comment_content'))
+	{   /*$result = Entry::select(DB::raw('count(likes.entry_id) as likes_count'))
+                ->join('likes', 'entries.id', '=', 'likes.entry_id')
+                ->groupBy('entries.id')
+                ->get();*/
+        $result = Entry::select(DB::raw('entries.title as entries_title, entries.created_at as creation_date, comments.content as comment_content, stories.content as stories_content, count(likes.entry_id) as likes_count'))
 				->join('stories', 'entries.id', '=', 'stories.entry_id')
 		    		->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
 		    		->leftJoin('comments', 'entries.id' ,'=', 'comments.entry_id')
-				/*->orderBy('created_at', 'desc')*/
+				->orderBy('entries.created_at', 'desc')
 		    		->skip($page-1 * $quantity)
 				->take($quantity)
+                ->groupBy('entries.title', 'entries.id', 'entries.created_at', 'comments.content', 'stories.content')
 				->get();
 	}
         /* AQUI AGREGAR AL ARREGLO $result, en su última posicion, LA CANTIDAD DE LIKES DE LA ENTRY */

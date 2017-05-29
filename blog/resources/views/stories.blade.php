@@ -20,8 +20,6 @@
                 <div class="panel-body">
                     @foreach ($stories as $story)
                     {{$story}}
-                    {{$story->title}}
-                    {{$story->content}}
                     @endforeach
                 </div>
             </div>
