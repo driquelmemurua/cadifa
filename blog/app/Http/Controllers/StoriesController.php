@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Entry;
+use App\Story;
 use App\EntriesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -20,9 +20,12 @@ class StoriesController extends Controller
             $story['likes'] = $service->getEntryLikes($story->id);
             $story['comments'] = $service->getEntryComments($story->id);
         }
-
+        $endpage = ceil(Story::count()/$max);
         return View::make('stories')
         	->with('stories', $stories)
-        	->with('entries', $entries);
+        	->with('entries', $entries)
+            ->with('page', $page)
+            ->with('endpage', $endpage)
+            ->with('type', 'stories');
     }
 }

@@ -73,3 +73,6 @@
     </div>
 </div>
 @endsection
+@section('navpage')
+    @include('navpage', compact($page, $endpage, $type))
+@endsection

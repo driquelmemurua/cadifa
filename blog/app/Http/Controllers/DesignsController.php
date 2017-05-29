@@ -22,8 +22,12 @@ class DesignsController extends Controller
             $design['comments'] = $service->getEntryComments($design->id);
         }
          
+        $endpage = ceil(Story::count()/$max);
         return View::make('designs')
             ->with('designs', $designs)
-            ->with('entries', $entries);
+            ->with('entries', $entries)
+            ->with('page', $page)
+            ->with('endpage', $endpage)
+            ->with('type', 'designs');
     }
 }

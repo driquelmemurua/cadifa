@@ -28,6 +28,7 @@
         @yield('navbar')
         @yield('sidebar')
         @yield('content')
+        @yield('navpage')
     </div>
 
     <!-- Scripts -->
