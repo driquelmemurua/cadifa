@@ -13,7 +13,8 @@ class EntriesService
     {
     	$entries = array(array(array()));
         $result = Entry::orderBy('id', 'desc')->get();
-        foreach($result as $entry){
+        foreach($result as $entry)
+        {
         	$year = Carbon::parse($entry->created_at)->year;
         	$month = Carbon::parse($entry->created_at)->month;
         	$entries[ $year ][ $month ][ $entry->id ] = $entry;
@@ -23,24 +24,27 @@ class EntriesService
 
     public function getStories($page, $quantity)
     {
-    /*$stories = array();*/
-	for($i = 0; $i < $quantity; $i++)
-	{   /*$result = Entry::select(DB::raw('count(likes.entry_id) as likes_count'))
-                ->join('likes', 'entries.id', '=', 'likes.entry_id')
-                ->groupBy('entries.id')
-                ->get();*/
-        $result = Entry::select(DB::raw('entries.title as entries_title, entries.created_at as creation_date, comments.content as comment_content, stories.content as stories_content, count(likes.entry_id) as likes_count'))
-				->join('stories', 'entries.id', '=', 'stories.entry_id')
-		    		->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
-		    		->leftJoin('comments', 'entries.id' ,'=', 'comments.entry_id')
-				->orderBy('entries.created_at', 'desc')
-		    		->skip($page-1 * $quantity)
-				->take($quantity)
-                ->groupBy('entries.title', 'entries.id', 'entries.created_at', 'comments.content', 'stories.content')
-				->get();
-	}
+
+	    $stories = array(array());
+
+        $result = Entry::select(DB::raw('entries.id as id, comments.id as comment_id, entries.title as entries_title, entries.created_at as creation_date, comments.content as comment_content, stories.content as stories_content, count(likes.entry_id) as likes_count'))
+			->join('stories', 'entries.id', '=', 'stories.entry_id')
+	    	->leftJoin('likes', 'entries.id', '=', 'likes.entry_id') 
+	    	->leftJoin('comments', 'entries.id' ,'=', 'comments.entry_id')
+			->orderBy('entries.created_at', 'desc')
+	    	->skip($page-1 * $quantity)
+			->take($quantity)
+            ->groupBy('entries.title', 'entries.id', 'entries.created_at', 'comments.content', 'stories.content', 'comment_id')
+			->get();
+
+		foreach($result as $story)
+		{
+			$stories[$story->id][$story->comment_id] = $story;
+			print($stories[$story->id][$story->comment_id]);
+		}
+		
         /* AQUI AGREGAR AL ARREGLO $result, en su última posicion, LA CANTIDAD DE LIKES DE LA ENTRY */
 
-        return $result/*$stories*/;
+        return $stories;
     }
 }
