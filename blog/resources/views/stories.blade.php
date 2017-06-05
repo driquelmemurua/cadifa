@@ -16,18 +16,6 @@
 
 @section('content')
 
-{{"Historias (blog/resources/views/stories.blade.php)"}} <br>
-{{"n: n-esima-1 historia (5 max) [0;4]"}} <br>
-{{"stories['n']->id"}} <br>
-{{"stories['n']->title"}} <br>
-{{"stories['n']->creation_date"}} <br>
-{{"stories['n']->likes"}} <br>
-{{"stories['n']->content"}} <br>
-{{"m: m-esimo-1 comentario [0;m]"}} <br>
-{{"stories['n']->comment['m']->name"}} <br>
-{{"stories['n']->comment['m']->avatar_route"}} <br>
-{{"stories['n']->comment['m']->content"}} <br>
-{{"----------"}}<br>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -40,33 +28,42 @@
                     <div class="panel-heading">
                             <h1>{{$story->title}}</h1>
 
-                    <div class="panel-body">
+                        <div class="panel-body">
 
-                        <div class="row">
-                            
-                            <div class="col-md-8 col-md-offset-0.3">
+                            <div class="row">
+                                
+                                <div class="col-md-8 col-md-offset-0.3">
 
-                                <h4>{{$story->creation_date}}</h4>
-                            
-                            </div>
-                        
-                        </div>
-
-                        <div class="row">
-                            
-                            <div class="col-md-8">
-
-                                <div class="entry">
-
-                                    <h3>{{$story->content}}</h3>
+                                    <h4>{{$story->creation_date}}</h4>
                                 
                                 </div>
+                            
+                            </div>
 
-                            </div>    
-                        
+                            <div class="row">
+                                
+                                <div class="col-md-8">
+
+                                    <div class="entry">
+
+                                        <h3>{{$story->content}}</h3>
+                                    
+                                    </div>
+
+                                </div>    
+                            
+                            </div>
                         </div>
                     </div>
-                </div>
+                
+                        <div class="form-group">
+                
+                          <label for="comment">Commentarios:</label>
+                
+                          <textarea class="form-control" rows="3" id="comment"></textarea>
+                
+                        </div>
+
                 @endforeach            
             </div>
         </div>
