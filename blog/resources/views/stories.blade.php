@@ -46,7 +46,7 @@
                             
                             <div class="col-md-8 col-md-offset-0.3">
 
-                                <h4>{{$story->created_at}}</h4>
+                                <h4>{{$story->creation_date}}</h4>
                             
                             </div>
                         
