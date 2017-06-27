@@ -15,7 +15,12 @@ Route::get('', function(){ return redirect()->route('stories');});
 Route::get('stories', 'StoriesController@index')->name('stories');
 Route::get('designs', 'DesignsController@index')->name('designs');
 Route::get('contact', 'ContactController@index')->name('contact');
+
 Route::get('entry', 'EntryController@index')->name('entry');
+Route::get('entry/story', 'EntryController@story')->name('story');
+Route::get('entry/design', 'EntryController@design')->name('design');
+
+Route::get('login', function(){return redirect()->route('auth');})->name('login');
 Route::group(['namespace' => 'Auth'], function () {
 Route::get('auth', 'AuthController@redirectToProvider')->name('auth');
 Route::get('auth/callback', 'AuthController@handleProviderCallback');
