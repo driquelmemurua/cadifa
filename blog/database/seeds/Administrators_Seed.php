@@ -25,7 +25,7 @@ class Administrators_Seed extends Seeder
             'id' => $i,
             'name' => $faker->name,
             'email' => $faker->email,
-            'password' => bcrypt('secret'),
+            'password' => bcrypt('admin'),
             'created_at' => $created_at,
             'updated_at' => $updated_at /*Debe terminar sin coma*/
             ]);
