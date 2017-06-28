@@ -22,9 +22,9 @@ class Users_and_Bloggers_Seed extends Seeder
 	    $created_at = date("Y-m-d H:i:s", $rand_created_at);
 	    $updated_at = date("Y-m-d H:i:s", $rand_updated_at);
 
-	    DB::table('users')->insert([
+	    DB::table('users')->insert([ /*Primero debe existir un users, luego se le asigna un bloggers*/
         'id' => $i,
-        'name' => $faker->name,
+        'name' => 'SOY BLOGGER',
         'avatar_route' => 'https://www.victoria147.com/wp-content/uploads/2014/10/user-avatar-placeholder.png',
         /*remember_token => ,*/ /*No utilizado mientras tanto, es el uso del TOKEN para uso con FACEBOOK*/
         'created_at' => $created_at,
@@ -32,14 +32,14 @@ class Users_and_Bloggers_Seed extends Seeder
         ]);
 
 	    DB::table('bloggers')->insert([
-        'id' => $i,
+        'id' => $i, /*Mismo id del primer users que tiene nombre "SOY BLOGGER"*/
         'bio' => 'Blogger del sistema',
         'created_at' => $created_at,
         'updated_at' => $updated_at /*Debe terminar sin coma*/
         ]);        
 
 	    /*Creacion de 99 usuarios NO bloggers en el sistema*/
-	    for( $i = 1; $i < 100; $i++ ) { 
+	    for($i = 1; $i < 100; $i++) { 
 	    	$rand_created_at = rand($min_date, $max_date); 
     		$rand_updated_at = rand($rand_created_at, $max_date);
 

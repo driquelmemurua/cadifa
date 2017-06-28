@@ -23,7 +23,7 @@ class Administrators_Seed extends Seeder
 
 	        DB::table('administrators')->insert([
             'id' => $i,
-            'name' => $faker->name,
+            'name' => 'SOY ADMIN con pass "admin"',
             'email' => $faker->email,
             'password' => bcrypt('admin'),
             'created_at' => $created_at,
