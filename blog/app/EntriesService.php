@@ -12,13 +12,30 @@ class EntriesService
 	
     public function sortEntries()
     {
-    	$entries = array(array(array()));
-        $result = Entry::orderBy('id', 'desc')->get();
-        foreach($result as $entry)
+    	$entries = array();
+        $result = 
+            Entry::orderBy('id', 'desc')->
+            get();
+        foreach($result as $id=>$entry)
         {
         	$year = Carbon::parse($entry->created_at)->year;
         	$month = Carbon::parse($entry->created_at)->month;
-        	$entries[ $year ][ $month ][ $entry->id ] = $entry;
+            if(!array_key_exists($year, $entries))
+            {
+                $entries[$year]=array($month=>array($id=>$entry->title));
+            }
+            else
+            {
+                if(array_key_exists($month, $entries[$year]))
+                {
+                    array_push($entries[$year][$month],$entry->title);
+                }
+                else
+                {
+                    $entries[$year] = array($month => array($id=>$entry->title));
+                }
+            }
+            //print($entries[$year]);
         }
 
         return $entries;

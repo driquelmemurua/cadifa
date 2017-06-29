@@ -29,9 +29,9 @@
                 <div class="panel-heading" style="background-color: #190542">
                         <h2 class="text-primary" style="font-weight: bold" >
                             <span style="display: inline-block; width: 3px"></span> 
-                            <img src="star.png" style="width: 30px">
+                            <img src="rubi.png" style="width: 30px">
                                 {{$story->title}}
-                            <img src="star.png" style="width: 30px"> 
+                            <img src="saphire.png" style="width: 30px"> 
                         </h2>
 
                     <div class="panel-body" >

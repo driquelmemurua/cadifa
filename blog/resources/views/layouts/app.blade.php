@@ -26,7 +26,7 @@
     <style> 
         body
         {
-            background-image:url("stars2.gif");
+            background-image:url("background.gif");
         }
     </style>
 </head>

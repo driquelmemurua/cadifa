@@ -20,6 +20,7 @@ class StoriesController extends Controller
             $story['likes'] = $service->getEntryLikes($story->id);
             $story['comments'] = $service->getEntryComments($story->id);
         }
+
         $endpage = ceil(Story::count()/$max);
         return View::make('stories')
         	->with('stories', $stories)
