@@ -21,7 +21,9 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
             <!-- Left Side Of Navbar -->
+
             <ul class="nav navbar-nav">
                 &nbsp;
                 <li><a href="{{ route('stories') }}"> <span class="text-primary"> Historias </span></a></li>
@@ -32,7 +34,6 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-
                 <li>
                     <a href="{{route('auth')}}">
                         <span class="text-primary">

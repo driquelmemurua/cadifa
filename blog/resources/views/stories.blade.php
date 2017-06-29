@@ -9,7 +9,7 @@
         @include('navbar')
     @endif
 @endsection
-
+{{Auth::guard('bloggers')->check()}}
 @section('sidebar')
     @include('sidebar', $entries)
 @endsection

@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top" style="background-color: #190542">
     <div class="container">
-        <div class="navbar-header">
+        <div class="navbar-header" >
 
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -12,18 +12,23 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Mi Blog') }}
+                <span>                    
+                    <img src="star.png" style="width: 20px"> 
+                </span>
+
+                <span class="text-primary">{{ config('app.name', 'Mi blog') }}</span>
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
             <!-- Left Side Of Navbar -->
+
             <ul class="nav navbar-nav">
                 &nbsp;
-                <li><a href="{{ route('stories') }}">Historias</a></li>
-                <li><a href="{{ route('designs') }}">Diseños</a></li>
-                <li><a href="{{ route('contact') }}">Contacto</a></li>
-                <li><a href="{{ route('entry') }}">Subir Entrada</a></li>
+                <li><a href="{{ route('stories') }}"> <span class="text-primary"> Historias </span></a></li>
+                <li><a href="{{ route('designs') }}"> <span class="text-primary">  Diseños </span></a></li>
+                <li><a href="{{ route('contact') }}"> <span class="text-primary"> Contacto </span></a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -38,7 +43,8 @@
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
+                                <img src="star.png" style="width: 20px"> 
                                 Logout
                             </a>
 
@@ -48,8 +54,8 @@
                         </li>
                     </ul>
                 </li>
-                <li><a>Crear</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
