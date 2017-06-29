@@ -28,6 +28,5 @@ class Administrators_Seed extends Seeder
         'created_at' => $created_at,
         'updated_at' => $updated_at /*Debe terminar sin coma*/
         ]);
-        }
     }
 }
