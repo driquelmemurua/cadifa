@@ -25,39 +25,41 @@
             <!-- Left Side Of Navbar -->
 
             <ul class="nav navbar-nav">
-                &nbsp;
+
                 <li><a href="{{ route('stories') }}"> <span class="text-primary"> Historias </span></a></li>
                 <li><a href="{{ route('designs') }}"> <span class="text-primary">  Diseños </span></a></li>
                 <li><a href="{{ route('contact') }}"> <span class="text-primary"> Contacto </span></a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
+                <div class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <img src="star.png" style="width: 20px"> 
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
+                        <div class="row">
 
-                    <ul>
-                        <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
+                                <img src="star.png" style="width: 20px"> 
+                                {{ Auth::user()->name }} 
+                            </button>
 
-                                Logout
-                            </a>
+                        </div>
+                        <div class="row">
+                            <div id="demo" class="collapse ">
+                            
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                                                    <span style="display: inline-block; width: 120px"></span> 
+                                                    <p style="font-size: 200%">Logout</p>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </a>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
-
--------------------------------------------------------------------------------------------------
