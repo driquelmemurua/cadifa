@@ -21,7 +21,7 @@ class Administrators_Seed extends Seeder
     	$updated_at = date("Y-m-d H:i:s", $rand_updated_at);
 
         DB::table('administrators')->insert([
-        'id' => $i,
+        //'id' => 0,
         'name' => 'SOY ADMIN con pass "admin"',
         'email' => $faker->email,
         'password' => bcrypt('admin'),
