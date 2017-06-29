@@ -106,10 +106,16 @@
                         </div>
                     </div>
 
-
-
-
-                        <textarea class="form-control" rows="3" id="comment" style="color: #ff00a5; background-color: #38024f"></textarea>
+                    <form action="{{route('newComment')}}" method="post">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                            Inserta tu comentario:<br>
+                            <textarea class="form-control" rows="3" id="comment" style="color: #ff00a5; background-color: #38024f"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                        
         
                 </div>
 
