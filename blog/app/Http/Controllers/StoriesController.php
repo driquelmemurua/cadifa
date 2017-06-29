@@ -28,5 +28,11 @@ class StoriesController extends Controller
             ->with('page', $page)
             ->with('endpage', $endpage)
             ->with('type', 'stories');
+        /*foreach($stories as $story){
+            foreach($story['comments'] as $comment){*/
+
+        /*    print($comment['content']);
+        return dd($stories);*/
+
     }
 }

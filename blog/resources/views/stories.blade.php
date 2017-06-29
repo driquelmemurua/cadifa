@@ -9,7 +9,7 @@
         @include('navbar')
     @endif
 @endsection
-{{Auth::guard('bloggers')->check()}}
+
 @section('sidebar')
     @include('sidebar', $entries)
 @endsection
@@ -23,15 +23,13 @@
         @foreach ($stories as $story)
         <div class="panel panel-default" style="background-color: #190542">
 
-
-
-
                 <div class="panel-heading" style="background-color: #190542">
                         <h2 class="text-primary" style="font-weight: bold" >
                             <span style="display: inline-block; width: 3px"></span> 
                             <img src="rubi.png" style="width: 30px">
                                 {{$story->title}}
                             <img src="saphire.png" style="width: 30px"> 
+                            {{$story->likes}}
                         </h2>
 
                     <div class="panel-body" >
@@ -71,7 +69,24 @@
                         </h4>
 
                     </label>
-
+                    
+                    @foreach ($story['comments'] as $comment)
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                {{$comment['name']}}
+                            </div>
+                            <div class="col-md-4">
+                                {{$comment['creation_date']}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=col-md-6 >
+                                {{$comment['content']}}
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                     <textarea class="form-control" rows="3" id="comment" style="color: #ff00a5; background-color: #190542"></textarea>
         
                 </div>
