@@ -15,7 +15,7 @@ Route::get('', function(){ return redirect()->route('stories');});
 Route::get('stories', 'StoriesController@index')->name('stories');
 Route::get('designs', 'DesignsController@index')->name('designs');
 Route::get('contact', 'ContactController@index')->name('contact');
-
+Route::post('comment', 'CommentController@index')->name('newComment');
 Route::get('entry', 'EntryController@index')->name('entry');
 Route::get('entry/story', 'EntryController@story')->name('story');
 Route::get('entry/design', 'EntryController@design')->name('design');
