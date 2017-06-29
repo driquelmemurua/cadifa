@@ -29,35 +29,37 @@
                 <li><a href="{{ route('stories') }}"> <span class="text-primary"> Historias </span></a></li>
                 <li><a href="{{ route('designs') }}"> <span class="text-primary">  Diseños </span></a></li>
                 <li><a href="{{ route('contact') }}"> <span class="text-primary"> Contacto </span></a></li>
+
             </ul>
 
             <!-- Right Side Of Navbar -->
-                <div class="nav navbar-nav navbar-right">
+                <div class=" navbar-right">
                 <!-- Authentication Links -->
-                        <div class="row">
+                    <div class="row">
 
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
-                                <img src="star.png" style="width: 20px"> 
-                                {{ Auth::user()->name }} 
-                            </button>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
+                            <img src="star.png" style="width: 20px"> 
+                            {{ Auth::user()->name }} 
+                        </button>
 
+                    </div>
+
+                    <div class="row">
+                        <div id="demo" class="collapse ">
+                        
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+
+                                                <span style="display: inline-block; width: 10px"></span> 
+                                                Logout
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </a>
                         </div>
-                        <div class="row">
-                            <div id="demo" class="collapse ">
-                            
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-
-                                                    <span style="display: inline-block; width: 120px"></span> 
-                                                    <p style="font-size: 200%">Logout</p>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </a>
-                            </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

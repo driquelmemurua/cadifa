@@ -60,34 +60,56 @@
                     </div>
                 </div>
                 
-                <div class="col" style="background-color: #2d0d70">
-
-                    <label for="comment">
-
-                        <h4 class="text-primary">
-                            <span style="display: inline-block; width: 24px"></span>Comentarios: 
-                        </h4>
-
-                    </label>
+                <div class="col" >
                     
-                    @foreach ($story['comments'] as $comment)
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2">
-                                {{$comment['name']}}
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #38024f">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse1">
+
+                                        <label for="comment">
+
+                                            <h4 class="text-primary">
+                                                <span style="display: inline-block; width: 24px"></span>Comentarios: 
+                                            </h4>
+
+                                        </label>
+                                    </a>
+                
+                                </h4>
                             </div>
-                            <div class="col-md-4">
-                                {{$comment['creation_date']}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class=col-md-6 >
-                                {{$comment['content']}}
+
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <ul class="list-group">
+                                    @foreach ($story['comments'] as $comment)
+                                        <li class="list-group-item" style="background-color: #190542">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-2" style="color: #ff00d0">
+                                                        {{$comment['name']}}
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        {{$comment['creation_date']}}
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class=col-md-6 >
+                                                        {{$comment['content']}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach 
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                    <textarea class="form-control" rows="3" id="comment" style="color: #ff00a5; background-color: #190542"></textarea>
+
+
+
+
+                        <textarea class="form-control" rows="3" id="comment" style="color: #ff00a5; background-color: #38024f"></textarea>
         
                 </div>
 
