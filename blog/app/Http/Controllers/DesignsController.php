@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entry;
+use App\Design;
 use App\EntriesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -22,7 +23,7 @@ class DesignsController extends Controller
             $design['comments'] = $service->getEntryComments($design->id);
         }
          
-        $endpage = ceil(Story::count()/$max);
+        $endpage = ceil(Design::count()/$max);
         return View::make('designs')
             ->with('designs', $designs)
             ->with('entries', $entries)

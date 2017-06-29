@@ -16,56 +16,70 @@
 
 @section('content')
 
-        <div class="col-md-7">
-        <br><br>
-            <div class="panel panel-default">
+<div class="col-md-7" >
 
-                <div class="panel-heading">Entradas</div>
+        <h3 class="text-primary">Entradas</h3>
 
-                    @foreach ($stories as $story)
+        @foreach ($stories as $story)
+        <div class="panel panel-default" style="background-color: #190542">
 
-                    <div class="panel-heading">
-                            <h1>{{$story->title}}</h1>
 
-                        <div class="panel-body">
 
-                            <div class="row">
-                                
-                                <div class="col-md-8">
 
-                                    <h4>{{$story->creation_date}}</h4>
+                <div class="panel-heading" style="background-color: #190542">
+                        <h2 class="text-primary" style="font-weight: bold" >
+                            <span style="display: inline-block; width: 3px"></span> 
+                            <img src="star.png" style="width: 30px">
+                                {{$story->title}}
+                            <img src="star.png" style="width: 30px"> 
+                        </h2>
+
+                    <div class="panel-body" >
+
+                        <div class="row">
+                            
+                            <div class="col-md-8">
+
+                                <h5 class="text-primary">{{$story->creation_date}}</h5>
+                            
+                            </div>
+                        
+                        </div>
+
+                        <div class="row" >
+                            
+                            <div class="col-md-8">
+
+                                <div class="entry">
+
+                                    <h3 class="text-primary">{{$story->content}}</h3>
                                 
                                 </div>
-                            
-                            </div>
 
-                            <div class="row">
-                                
-                                <div class="col-md-8">
-
-                                    <div class="entry">
-
-                                        <h3>{{$story->content}}</h3>
-                                    
-                                    </div>
-
-                                </div>    
-                            
-                            </div>
+                            </div>    
+                        
                         </div>
                     </div>
+                </div>
                 
-                        <div class="form-group">
-                
-                          <label for="comment">Commentarios:</label>
-                
-                          <textarea class="form-control" rows="3" id="comment"></textarea>
-                
-                        </div>
+                <div class="col" style="background-color: #2d0d70">
 
-                @endforeach            
-            </div>
+                    <label for="comment">
+
+                        <h4 class="text-primary">
+                            <span style="display: inline-block; width: 24px"></span>Comentarios: 
+                        </h4>
+
+                    </label>
+
+                    <textarea class="form-control" rows="3" id="comment" style="color: #ff00a5; background-color: #190542"></textarea>
+        
+                </div>
+
         </div>
+
+        @endforeach            
+</div>
 
 
 @endsection
