@@ -31,10 +31,10 @@ class Entries_Designs_Stories_EntryTags_Seed_Comments_Seed extends Seeder
 		$image_id = 0;
 
 		$cantidad_entries = 20; /*cantidad de entries de prueba que existiran en el sistema*/
-    	$rand_entries_created_at = $min_date; /*primer entries se crea el mismo dia del inicio del sistema */ 
-   		$rand_entries_updated_at = rand($rand_entries_created_at, $max_date); /*modificacion entre la creacion del sistema y la fecha de entrega*/
 
 	    for($i = 1; $i < $cantidad_entries; $i++){
+		    $rand_entries_created_at = rand($min_date, $max_date); /*se vuelve a sacar una fecha*/
+   			$rand_entries_updated_at = rand($rand_entries_created_at, $max_date); /*modificacion entre la creacion del sistema y la fecha de entrega*/
 		    $created_at = date("Y-m-d H:i:s", $rand_entries_created_at);
 		    $updated_at = date("Y-m-d H:i:s", $rand_entries_updated_at);
 		    
@@ -140,9 +140,6 @@ class Entries_Designs_Stories_EntryTags_Seed_Comments_Seed extends Seeder
 		        }
 
 			endif;
-
-		    $rand_entries_created_at = rand($min_date, $max_date); /*se vuelve a sacar una fecha*/
-   			$rand_entries_updated_at = rand($rand_entries_created_at, $max_date); /*mismo principio*/
 
 	    }
 

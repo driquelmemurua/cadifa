@@ -1,0 +1,7 @@
+En orden, correr en la terminal los siguientes comandos:
+
+php artisan db:seed --class=Administrators_Seed
+php artisan db:seed --class=Users_and_Bloggers_Seed
+php artisan db:seed --class=Blogger_Fabian_Seed
+php artisan db:seed --class=Images_and_Tags_Seed
+php artisan db:seed --class=Entries_Designs_Stories_EntryTags_Seed_Comments_Seed
