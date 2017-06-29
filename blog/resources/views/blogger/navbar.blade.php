@@ -29,6 +29,7 @@
                 <li><a href="{{ route('stories') }}"> <span class="text-primary"> Historias </span></a></li>
                 <li><a href="{{ route('designs') }}"> <span class="text-primary">  Diseños </span></a></li>
                 <li><a href="{{ route('contact') }}"> <span class="text-primary"> Contacto </span></a></li>
+                <li><a href="{{ route('entry') }}"> <span class="text-primary"> Subir entrada </span></a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

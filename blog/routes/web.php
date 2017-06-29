@@ -19,6 +19,7 @@ Route::get('contact', 'ContactController@index')->name('contact');
 Route::get('entry', 'EntryController@index')->name('entry');
 Route::get('entry/story', 'EntryController@story')->name('story');
 Route::get('entry/design', 'EntryController@design')->name('design');
+Route::post('entry/story', 'EntryController@newStory')->name('newStory');
 
 Route::get('login', function(){return redirect()->route('auth');})->name('login');
 Route::group(['namespace' => 'Auth'], function () {
