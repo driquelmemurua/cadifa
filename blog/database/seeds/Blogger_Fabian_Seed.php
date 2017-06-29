@@ -11,7 +11,7 @@ class Blogger_Fabian_Seed extends Seeder
      */
 	public function run(){
 	    $faker = Faker\Factory::create();
-	    $min_date = strtotime("10 March 2017");
+	    $min_date = strtotime("10 March 2010");
     	$max_date = strtotime("29 June 2017");
 	    
 	    $rand_created_at = $min_date; /*Blogger "creado" en la misma fecha de creacion del sistema*/

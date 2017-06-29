@@ -11,7 +11,7 @@ class Entries_Designs_Stories_EntryTags_Seed_Comments_Seed extends Seeder
      */
 	public function run(){
 	    $faker = Faker\Factory::create();
-	    $min_date = strtotime("10 March 2017");
+	    $min_date = strtotime("10 March 2010");
     	$max_date = strtotime("29 June 2017");
 
     	$blogger_id = '10212223048787308'; /*el id del blogger, en este sistema de prueba, es 0*/
