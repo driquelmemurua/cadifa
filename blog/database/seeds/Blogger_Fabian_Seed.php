@@ -31,12 +31,12 @@ class Blogger_Fabian_Seed extends Seeder
         'id' => $id_facebook,
         'name' => $name_facebook,
         'avatar_route' => $avatar_route_facebook,
-        'remember_token' => $remember_token_facebook,*/ /*TOKEN para uso con FACEBOOK*/
+        'remember_token' => $remember_token_facebook, /*TOKEN para uso con FACEBOOK*/
         'created_at' => $created_at,
         'updated_at' => $updated_at /*Debe terminar sin coma*/
         ]);
 
-		$bio1 = 'Blogger del sistema '
+		$bio1 = 'Blogger del sistema ';
 		$bio2 = $name_facebook;
 
 	    DB::table('bloggers')->insert([
