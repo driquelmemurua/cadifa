@@ -39,7 +39,7 @@
             @yield('sidebar')
             @yield('content')
         </div>
-        <div class="row">    
+        <div class="row">   
             @yield('navpage')
         </div>    
     </div>

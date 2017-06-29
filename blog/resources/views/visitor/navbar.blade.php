@@ -13,7 +13,7 @@
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 <span>                    
-                    <img src="star.png" style="width: 20px"> 
+                    <img src="star.png" style="width: 15px"> 
                 </span>
 
                 <span class="text-primary">{{ config('app.name', 'Mi blog') }}</span>
@@ -51,8 +51,10 @@
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
 
-                                                <span style="display: inline-block; width: 10px"></span> 
-                                                Logout
+                                                <span style="display: inline-block; width: 20px"></span> 
+                                                <img src="snoop.gif" style="width: 300px"> 
+                                                -->LOGOUT<--
+                                                <img src="snoop.gif" style="width: 300px"> 
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}

@@ -6,7 +6,7 @@
   				<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="color: #2a60b7">
   					<h3 style="background-color: #190542">
   						<span style="display: inline-block; width: 20px"></span>
-  							{{$year}}
+  							------------{{$year}}------------
   					</h3>
   				</a>
 

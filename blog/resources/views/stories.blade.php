@@ -17,7 +17,7 @@
 @section('content')
 
 <div class="col-md-7" >
-
+        
         <h3 class="text-primary">Entradas</h3>
 
         @foreach ($stories as $story)
