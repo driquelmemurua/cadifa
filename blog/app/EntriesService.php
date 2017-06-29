@@ -14,28 +14,13 @@ class EntriesService
     {
     	$entries = array();
         $result = 
-            Entry::orderBy('id', 'desc')->
+            Entry::orderBy('created_at', 'desc')->
             get();
         foreach($result as $id=>$entry)
         {
         	$year = Carbon::parse($entry->created_at)->year;
         	$month = Carbon::parse($entry->created_at)->month;
-            if(!array_key_exists($year, $entries))
-            {
-                $entries[$year]=array($month=>array($id=>$entry->title));
-            }
-            else
-            {
-                if(array_key_exists($month, $entries[$year]))
-                {
-                    array_push($entries[$year][$month],$entry->title);
-                }
-                else
-                {
-                    $entries[$year] = array($month => array($id=>$entry->title));
-                }
-            }
-            //print($entries[$year]);
+            $entries[$year][$month][$id] = $entry->title;
         }
 
         return $entries;
@@ -43,7 +28,7 @@ class EntriesService
 
     public function getStories($page, $max)
     {
-        $result = Entry::select('entries.id', 'entries.title', 'entries.created_at as creation_date', 'stories.content')
+        $result = Entry::select('entries.id', 'entries.title', 'entries.created_at as creation_date', 'stories.content')->orderBy('creation_date', 'desc')
                         ->join('stories', 'entries.id', '=', 'stories.entry_id')
                         ->skip($page-1 * $max)
                         ->take($max)

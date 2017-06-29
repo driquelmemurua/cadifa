@@ -12,6 +12,7 @@
 	      				</a>
 
 			    		@foreach ($years as $month => $months)
+			    		{{$month}}
 			    			@foreach ($months as $id=>$entry)
 			    			<h4>
 						        {{ $entry }}
