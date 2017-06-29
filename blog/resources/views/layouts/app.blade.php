@@ -22,13 +22,25 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <style> 
+        body
+        {
+            background-image:url("background.gif");
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
+    <div class="row">
         @yield('navbar')
-        @yield('sidebar')
-        @yield('content')
-        @yield('navpage')
+    </div>
+    <div class="container">
+        <div class="row">
+            @yield('sidebar')
+            @yield('content')
+        </div>
+        <div class="row">    
+            @yield('navpage')
+        </div>    
     </div>
 
     <!-- Scripts -->

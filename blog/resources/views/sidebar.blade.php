@@ -1,19 +1,5 @@
-
-
-@foreach ($entries as $year => $months)
-    @if ($year)
-        @foreach ($months as $month => $month_entries)
-            @foreach ($month_entries as $entry)
-
-            @endforeach
-        @endforeach
-    @endif
-@endforeach
 <br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-2 ">
+        <div class="col-md-3 ">
         	<h3> Historial</h3>
 			<div class="panel-group" id="accordion">
 			    <div class="panel panel-default">
@@ -35,8 +21,7 @@
 					@endforeach
 			    </div>
 			</div> 
-		</div>
 	</div>
-</div>
+
 
 	
