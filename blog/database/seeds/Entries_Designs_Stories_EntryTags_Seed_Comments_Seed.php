@@ -68,7 +68,7 @@ class Entries_Designs_Stories_EntryTags_Seed_Comments_Seed extends Seeder
 		    
 			/*comments - Creacion de varios, asociados a entries en creacion*/
 
-	    	for($id_users = 1; $id_users < 100; $id_users+=rand(0,10)){ /*comentan los distintos usuarios que entren*/	
+	    	for($id_users = 1; $id_users < 100; $id_users+=rand(1,10)){ /*comentan los distintos usuarios que entren*/	
 		    	$cantidad_comments_per_users = rand(0, $cantidad_max_comments_per_user);
 		    		
 		    	for($l = 0; $l < $cantidad_comments_per_users; $l++){ /*cantidad de comments que hace cada users*/
@@ -92,6 +92,23 @@ class Entries_Designs_Stories_EntryTags_Seed_Comments_Seed extends Seeder
 		        	]);
 			    }
 
+			}
+
+			/*likes - Creacion de varios, asociados a entries en creacion*/
+
+			for($id_users = 1; $id_users < 100; $id_users+=rand(1,10)){ /*comentan los distintos usuarios que entren*/			
+		       	$rand_likes_created_at = rand($rand_entries_created_at, $max_date); /*likes tiene misma o futura fecha respecto a su entries*/ 
+	   			$rand_likes_updated_at = rand($rand_likes_created_at, $max_date);
+
+			    $likes_created_at = date("Y-m-d H:i:s", $rand_likes_created_at);
+			    $likes_updated_at = date("Y-m-d H:i:s", $rand_likes_updated_at);
+
+			   	DB::table('likes')->insert([
+		       	'entry_id' => $i, /*id de la entries en creacion*/
+		       	'user_id' => $id_users,
+		       	'created_at' => $likes_created_at, /*Los likes tienen mismas o futuras fechas que su entries asignado*/
+		       	'updated_at' => $likes_updated_at /*Debe terminar sin coma*/
+		       	]);
 			}
 
 			/*Desde aqui se define si le entries es una stories o un designs*/

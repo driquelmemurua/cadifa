@@ -59,10 +59,11 @@ class EntriesService
 
     public function getEntryComments($id)
     {
-        $result = Entry::select('users.name', 'users.avatar_route', 'comments.content')
+        $result = Entry::select('users.name', 'users.avatar_route', 'comments.content', 'entries.created_at as creation_date' )
                         ->join('comments', 'entries.id', '=', 'comments.entry_id')
                         ->join('users', 'users.id', '=', 'comments.user_id')
                         ->where('entries.id', $id)
+                        ->orderBy('creation_date', 'desc')
                         ->get();
         
         return $result;
